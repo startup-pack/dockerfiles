@@ -1,4 +1,13 @@
 #!/bin/sh
 
-docker rm -f sp_base >/dev/null 2>&1
-docker run -dP --name sp_base startup_pack/base:0.9.15
+# ./build
+
+docker rm -f sp_rails >/dev/null 2>&1
+
+docker run -dP --name sp_rails \
+	-v=`pwd`/../work:/home/app \
+	startup_pack/rails:0.9.10
+
+docker ps
+
+sleep 1; ./ssh

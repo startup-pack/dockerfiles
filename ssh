@@ -1,6 +1,7 @@
 #!/bin/sh
 
-HOST_IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" sp_base)
+HOST_IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" sp_rails)
 
-ssh -i ../keys/docker_ssh root@$HOST_IP
-
+# These options are a bad idea. Just used for quick testing.
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
+	-i ../keys/docker_ssh root@$HOST_IP

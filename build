@@ -1,3 +1,4 @@
 #!/bin/sh
 
-cd base && docker build -t "startup_pack/base:0.9.15" .
+cd base && docker build -t "startup_pack/base:0.9.15" . && cd -
+cd rails && docker build -t "startup_pack/rails:0.9.10" . && cd -

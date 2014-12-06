@@ -1,14 +1,19 @@
 #!/bin/sh
 
-$(boot2docker shellinit 2>/dev/null)
+if [ -z $DSH ]; then
 
-# Verify docker client can connect
-docker info
+	$(boot2docker shellinit 2>/dev/null)
 
-echo '***********************************************************************************************************************'
-echo 'Run the following to sync clock (if it drifts): '
-echo '  boot2docker ssh sudo ntpclient -s -h pool.ntp.org'
-echo '***********************************************************************************************************************'
+	# Verify docker client can connect
+	docker info
 
-$SHELL
+	echo '***********************************************************************************************************************'
+	echo 'Run the following to sync clock (if it drifts): '
+	echo '  boot2docker ssh sudo ntpclient -s -h pool.ntp.org'
+	echo '***********************************************************************************************************************'
 
+	export DSH=1
+
+	$SHELL
+
+fi
