@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cd base && docker build -t "startup_pack/base:0.9.15" .

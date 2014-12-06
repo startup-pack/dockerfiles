@@ -1,0 +1,6 @@
+#!/bin/sh
+
+HOST_IP=$(docker inspect -f "{{ .NetworkSettings.IPAddress }}" sp_base)
+
+ssh -i ../keys/docker_ssh root@$HOST_IP
+

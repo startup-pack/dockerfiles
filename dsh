@@ -1,0 +1,14 @@
+#!/bin/sh
+
+$(boot2docker shellinit 2>/dev/null)
+
+# Verify docker client can connect
+docker info
+
+echo '***********************************************************************************************************************'
+echo 'Run the following to sync clock (if it drifts): '
+echo '  boot2docker ssh sudo ntpclient -s -h pool.ntp.org'
+echo '***********************************************************************************************************************'
+
+$SHELL
+
