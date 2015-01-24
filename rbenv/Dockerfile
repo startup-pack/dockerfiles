@@ -22,7 +22,7 @@ RUN apt-get -y update \
 
 # Cleanup
 RUN apt-get -y autoremove \
-    && apt-get -y autoclean
+    && apt-get -y autoclean \
     && apt-get -y clean \
     && rm -fr /tmp/* /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
